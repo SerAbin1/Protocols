@@ -2,15 +2,16 @@
 
 import socket
 
-clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = socket.gethostname()
-port = 445
+target_host = "www.google.com"
+target_port = 80
 
-clientSocket.connect((host, port))
+client.connect((target_host, target_port))
 
-message = clientSocket.recv(1024)
+client.send(b"GET / HTTP/1.1\r\nHost: google.com\r\n\r\n")
 
-clientSocket.close()
+response = client.recv(4096)
 
-print(message.decode('ascii'))
+print(response.decode())
+client.close()
