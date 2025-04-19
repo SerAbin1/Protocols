@@ -1,3 +1,3 @@
-# TCP with Socket
+# Socket
 
-Exploring TCP by building it with the python socket module.
+Exploring TCP, UDP and other protocols by building it with the python socket module.
